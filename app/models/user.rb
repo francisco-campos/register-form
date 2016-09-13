@@ -1,5 +1,11 @@
 class User < ApplicationRecord
-    #validates :name, :presence => true, :wrong_length => "Error personalizado"
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+    
+    has_secure_password
+
     validates_presence_of :name, :message => "El campo no puede estar vacío"
     validates_presence_of :email, :message => "El campo no puede estar vacío"
     validates_presence_of :pass, :message => "El campo no puede estar vacío"

@@ -1,4 +1,11 @@
 class HomeController < ApplicationController
+    before_action :require_login, only: [:success]
+
+    def require_login
+        if session[:current_user_id] == nil
+            redirect_to controller: 'login', action: 'new'
+        end
+    end
 
     #GET Home
     def index

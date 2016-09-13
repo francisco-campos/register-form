@@ -1,23 +1,14 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6 offset-md-3"><h1 class="display-4">Formulario de registro</h1></div>        
+        <div class="col-md-6 offset-md-3"><h1 class="display-4">Login</h1></div>        
     </div>
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <%= form_for @user, url: {action: "create"}, html: {method: "post"} do |f| %>
                 
                 <%
-                #validaciones para el campo nombre
-                alert_name = ""
-                danger_name = ""
-                msg_name = ""
-                if @user.errors[:name].any?
-                    alert_name = "form-control-danger"
-                    danger_name = "has-danger"
-                    msg_name = @user.errors[:name].first
-                end
-
+                
                 #validaciones para el campo email
                 alert_email = ""
                 danger_email = ""
@@ -40,21 +31,13 @@
                 
                 
                 %>
-                <div class="form-group <%= danger_name %>">                    
-                    <label for="user_name" class="sr-only">Nombre</label>
-                    <%= f.text_field :name, placeholder: "Nombre", class: "form-control " +  alert_name %>
-                    <% if msg_name != "" %>
-                        <div class="form-control-feedback"><%= msg_name %></div>
-                    <%end%>
-                    <small class="form-text text-muted">Ingresa tu nombre y apellido.</small>
-                </div>
+                
                 <div class="form-group <%= danger_email %>">                                        
                     <label for="user_email" class="sr-only">Email</label>
                     <%= f.text_field :email, placeholder: "Email", class: "form-control " + alert_email %>
                     <% if msg_email != "" %>
                         <div class="form-control-feedback"><%= msg_email %></div>
                     <%end%>
-                    <small class="form-text text-muted">Ingresa un email único.</small>
                 </div>                
                 <div class="form-group <%= danger_pass %>">                    
                     <label for="user_pass" class="sr-only">Contraseña</label>
@@ -62,11 +45,11 @@
                     <% if msg_pass != "" %>
                         <div class="form-control-feedback"><%= msg_pass %></div>
                     <%end%>
-                    <small class="form-text text-muted">La constrasela debe ser almenos de 6 caracteres.</small>
                 </div>
 
-                <%= f.submit "Registrarme", class: "btn btn-primary" %>
-                <small class="form-text text-muted"><%= link_to "Ya tienes una cuenta?", :login %>.</small>
+                <%= f.submit "Ingresar", class: "btn btn-primary" %>
+                <small class="form-text text-muted">Si no tienes cuenta registrate <%= link_to "acá", :home %>.</small>
+
             <% end %>
         </div>
         

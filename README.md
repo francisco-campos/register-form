@@ -1,24 +1,4 @@
-# README
+# Login Form
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<h3>Este proyecto contiene un formulario de registro y login de usuarios con authenticación utilizando devise y pruebas 
+de test con rspec</h3>
